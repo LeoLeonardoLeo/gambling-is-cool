@@ -1,5 +1,7 @@
 import { Tabs } from 'expo-router';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import Entypo from '@expo/vector-icons/Entypo';
+
 
 export default function TabLayout() {
   return (
@@ -19,7 +21,6 @@ export default function TabLayout() {
           backgroundColor: '#232324',
           },
         }}>
-    
 
       <Tabs.Screen 
       name='index' 
@@ -29,14 +30,22 @@ export default function TabLayout() {
         headerTitle: '', //removes title on the top
       }}  />
 
+    <Tabs.Screen 
+      name='wallet'
+      options={{
+        title: 'Wallet',
+        tabBarIcon: ({color}) => <Entypo name="wallet" size={24} color={color} />,
+        headerTitle: '',
+      }} />
 
-      <Tabs.Screen name='search' 
+
+      <Tabs.Screen 
+      name='search' 
       options={{
         title: 'Search',
-        tabBarIcon: ({color}) => <FontAwesome name="search" size={25} color={color}/>,
+        tabBarIcon: ({color}) => <FontAwesome name='search' size={25} color={color}/>,
         headerTitle: '',
       }}  />
-
 
       <Tabs.Screen name='details'
       options={{
