@@ -4,52 +4,80 @@ export default function details() {
   return (
     <View style={styles.body}>
       <Text style={styles.title}>
-        Details about this app
+        About This App
       </Text>
       
-      <Text> </Text>
-      
-      <Text style={styles.normal_text}>
-        This app is not a real gambling app (obviously), I don't know if anyone will
-        see this app and want to actually gamble but I am not responsible.
-      </Text>
+      {/* disclaimer */}
+      <View style={styles.block}>
+        <Text style={styles.disclaimer}>
+          Disclaimer
+        </Text>
+        <Text style={styles.normalText}>
+          This app is not a real gambling app (obviously). I don't know if anyone will 
+          see this app and want to actually gamble, but I am not responsible. Please be
+          responsible. Skibidi 
+        </Text>
+      </View>
 
-      <Text> </Text>
-
-      <Text style={styles.normal_text}>
-        Don't be stupid
-      </Text>
-
-      <Text> </Text>
-
-      <Text style={styles.normal_text}>
-        GOALS FOR THIS APP
-      </Text>
-      <Text style={styles.normal_text}>
-        - 3 or more games
-        {"\n"}- Money system where you deposit/withdraw (fake) money, where u can win or lose money
-        {"\n"}- A search for maybe games (possibly hard) or how to play games
-        {"\n"}- In the future be able to save the money for future uses 
-        {"\n"}- In the future future make it so you need an account to play
-      </Text>
+      {/* goals */}
+      <View style={styles.block}>
+        <Text style={styles.goals_text}>
+          Goals for This App
+        </Text>
+        <Text style={styles.normalText}>
+        → Include 3 or more games
+          {"\n"}✔️ Add a money system where you can deposit/withdraw (fake) money
+          {"\n"}→ Track wins and losses
+          {"\n"}→ Implement a search feature for games and/or how to play guides
+          {"\n"}→ Database to save money
+          {"\n"}→ Eventually require user accounts
+        </Text>
+      </View>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
-  body:{
+  body: {
     flex: 1,
+    backgroundColor: '#1c1c1e',
+    padding: 20,
+    alignItems: 'center',
+  },
+  title: {
+    color: '#f5f5f5',
+    fontSize: 28,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+  block: {
     backgroundColor: '#2c2c2e',
     padding: 20,
-    alignItems: 'center', 
+    borderRadius: 12,
+    marginVertical: 12,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 6,
+    width: '100%',
   },
-  title:{
-    color: 'white',
-    fontSize: 15,
-    fontWeight: 'bold'
+  disclaimer: {
+    color: 'red',
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginBottom: 10,
   },
-  normal_text:{
-    color: 'white',
-    fontSize: 12
-  }
+  goals_text: {
+    color: 'green',
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  normalText: {
+    color: '#d1d1d6',
+    fontSize: 16,
+    lineHeight: 24,
+  },
 });
