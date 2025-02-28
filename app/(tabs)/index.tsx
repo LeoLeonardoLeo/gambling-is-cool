@@ -1,66 +1,80 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { router } from "expo-router";
+import { Ionicons, FontAwesome5 } from "@expo/vector-icons"; //import icons
 
 export default function Index() {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.body}>
+        {/* Title */}
         <Text style={styles.title}>BetLeo</Text>
 
-        <View style={styles.row}>
+        <View style={styles.grid}>
+        <TouchableOpacity onPress={() => router.push("/games/coinFlip")} style={styles.square}>
+          <FontAwesome5 name="coins" size={40} color="gold" />
+          <Text style={styles.squareText}>Coin Flip</Text>
+        </TouchableOpacity>
 
-          <View style={styles.square}>
-            <Text style={styles.squareText}>Coin Flip</Text>
-          </View>
-          
-          <View style={styles.square}>
-            <Text style={styles.squareText}>Random Number Game</Text>
-          </View>
-    
-        </View>
+        <TouchableOpacity onPress={() => router.push("/games/randNumGame")} style={styles.square}>
+          <Ionicons name="dice" size={40} color="cyan" />
+          <Text style={styles.squareText}>Random Number Game</Text>
+        </TouchableOpacity>
 
-      
-        <View style={styles.row}>
- 
-          <View style={styles.square}>
-            <Text style={styles.squareText}>Game 3</Text>
-          </View>
-          
-          <View style={styles.square}>
-            <Text style={styles.squareText}>Game 4</Text>
-          </View>
+        <TouchableOpacity onPress={() => router.push("/games/guessNumber")} style={styles.square}>
+          <Ionicons name="help-circle" size={40} color="orange" />
+          <Text style={styles.squareText}>Guess The Number</Text>
+        </TouchableOpacity>
 
-        </View>
+        <TouchableOpacity onPress={() => router.push("/games/rockPaperScissors")} style={styles.square}>
+          <FontAwesome5 name="hand-rock" size={40} color="red" />
+          <Text style={styles.squareText}>Rock Paper Scissors</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  body:{
+  body: {
     flex: 1,
-    backgroundColor: '#2c2c2e',
+    backgroundColor: "#1E1E1E", // Darker background
     padding: 20,
-    alignItems: 'center', 
+    alignItems: "center",
   },
-  title:{
-    color: 'white',
-    fontSize: 25,
-    fontWeight: 'bold'
+  title: {
+    color: "#FFD700", // Gold title
+    fontSize: 28,
+    fontWeight: "bold",
+    marginBottom: 20,
+    textAlign: "center",
   },
-  row: {
-    flexDirection: "row",
-    marginTop: 15,
-    marginBottom: 5,
+  grid: {
+    flexDirection: "row", 
+    flexWrap: "wrap",
+    justifyContent: "center", 
+    width: "100%", 
+    gap: 20, // Add space between buttons
   },
   square: {
-    width: 150,
-    height: 150,
+    width: 160, 
+    height: 160,
     backgroundColor: "#444",
-    margin: 20,
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 30,
+    borderRadius: 15,
+    borderWidth: 1.5,
+    borderColor: "#FFD700", // Gold border
+    shadowColor: "#FFD700",
+    shadowOpacity: 0.4,
+    shadowRadius: 10,
+    elevation: 10, // Android shadow
   },
   squareText: {
     color: "white",
     fontSize: 16,
+    fontWeight: "bold",
+    marginTop: 10,
   },
 });

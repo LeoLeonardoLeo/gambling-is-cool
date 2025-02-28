@@ -1,7 +1,8 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, ScrollView, StyleSheet } from "react-native";
 
 export default function details() {
   return (
+    <ScrollView contentContainerStyle={styles.scrollContainer} style={styles.scrollView}>
     <View style={styles.body}>
       <Text style={styles.title}>
         About This App
@@ -12,35 +13,57 @@ export default function details() {
         <Text style={styles.disclaimer}>
           Disclaimer
         </Text>
+  
         <Text style={styles.normalText}>
           This app is not a real gambling app (obviously). I don't know if anyone will 
           see this app and want to actually gamble, but I am not responsible. Please be
           responsible. Skibidi 
         </Text>
       </View>
-
+  
       {/* goals */}
       <View style={styles.block}>
         <Text style={styles.goals_text}>
           Goals for This App
         </Text>
+  
         <Text style={styles.normalText}>
         → Include 3 or more games
           {"\n"}✔️ Add a money system where you can deposit/withdraw (fake) money
           {"\n"}→ Track wins and losses
           {"\n"}→ Implement a search feature for games and/or how to play guides
           {"\n"}→ Database to save money
-          {"\n"}→ Eventually require user accounts
+        </Text>
+      </View>
+  
+      <View style={styles.block}>
+        <Text style={styles.potential_text}>
+          Potential
+        </Text>
+  
+        <Text style={styles.normalText}>
+          → User accounts to link to wallet
         </Text>
       </View>
     </View>
+  </ScrollView>
+  
+
   );
 }
 
 const styles = StyleSheet.create({
+  scrollView: {
+    backgroundColor: '#1E1E1E', // Ensures the background doesn't turn white when overscrolling
+  },
+  scrollContainer: {
+    flexGrow: 1, 
+    backgroundColor: '#1E1E1E', // Keeps the scrollable area dark
+    paddingBottom: 20, // Avoids the content from sticking to the bottom
+  },
   body: {
     flex: 1,
-    backgroundColor: '#1c1c1e',
+    backgroundColor: '#1E1E1E',
     padding: 20,
     alignItems: 'center',
   },
@@ -71,6 +94,12 @@ const styles = StyleSheet.create({
   },
   goals_text: {
     color: 'green',
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  potential_text: {
+    color: 'purple',
     fontSize: 22,
     fontWeight: 'bold',
     marginBottom: 10,
